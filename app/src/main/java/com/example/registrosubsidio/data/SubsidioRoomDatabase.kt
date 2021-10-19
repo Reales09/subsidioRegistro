@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase
 
 abstract class SubsidioRoomDatabase : RoomDatabase() {
 
-    abstract fun subsidioDao(): SubsisioDao
+    abstract fun subsidioDao(): SubsidioDao
 
     companion object {
         @Volatile

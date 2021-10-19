@@ -4,7 +4,7 @@ import androidx.room.*
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface SubsisioDao {
+interface SubsidioDao {
 
     @Insert (onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(entidadSubsidio: EntidadSubsidio)
