@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">RegistroSubsidio</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nombre">Escribe tu nombre</string>
+    <string name="numero_personas">Numero de personas a recibir subsidio</string>
+    <string name="numero_hijos">Cuandos hijos tienes</string>
+    <string name="total">Total a recibir</string>
+    <string name="valor">Coloca el valor recibido del subsidio</string>
+    <string name="guardar">Guardar</string>
+    <string name="add_new_subsidio">Agregar nuevo subsidio</string>
+    <string name="nombre_lista">Nombre</string>
+    <string name="lista_valor">Valor</string>
+    <string name="lista_numero_personas">Personas</string>
+    <string name="lista_numero_hijos">Hijos</string>
+    <string name="lista_total">Total</string>
+
+
 </resources>
