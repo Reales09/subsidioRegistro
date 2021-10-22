@@ -31,7 +31,6 @@
                 android:id="@+id/subsidio_nombre"
                 android:layout_width="374dp"
                 android:layout_height="match_parent"
-                android:hintTextColor="#616161"
                 android:inputType="textAutoComplete|textCapWords"
                 android:singleLine="true"
                 tools:ignore="TextContrastCheck,DuplicateClickableBoundsCheck" />
@@ -50,10 +49,9 @@
             app:layout_constraintTop_toBottomOf="@+id/subsidio_nombre_label">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/valor"
+                android:id="@+id/subsidioValor"
                 android:layout_width="374dp"
                 android:layout_height="match_parent"
-                android:hintTextColor="#616161"
                 android:inputType="textAutoComplete|textCapWords"
                 android:singleLine="true"
                 tools:ignore="TextContrastCheck" />
@@ -84,7 +82,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:hint="@string/numero_personas"
+            android:hint="@string/numero_hijos"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"

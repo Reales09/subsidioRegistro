@@ -18,7 +18,8 @@ interface SubsidioDao {
     @Query("SELECT * from datos_subsidio WHERE id = :id")
     fun getItem(id: Int): Flow<EntidadSubsidio>
 
-    @Query("SELECT * from datos_subsidio  ORDER BY nombre ASC")
+    @Query("SELECT id,nombre, valor,numero_personas,numero_hijos,  valor / numero_personas * numero_hijos  as total from datos_subsidio ORDER BY nombre ASC")
     fun getItems(): Flow<List<EntidadSubsidio>>
+
 
 }

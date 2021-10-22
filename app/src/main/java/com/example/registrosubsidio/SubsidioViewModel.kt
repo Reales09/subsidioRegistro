@@ -16,22 +16,91 @@ class SubsidioViewModel (private val subsidioDao: SubsidioDao): ViewModel() {
         }
     }
 
-    private fun getNewSubsidioEntry(subsidioNombre: String, subsidioValor: Double,subsidioNumeroPersonas: Int, subsidioNumeroHijos: Int, subsidioTotal:Double): EntidadSubsidio {
+    fun retrieveItem(id: Int): LiveData<EntidadSubsidio> {
+        return subsidioDao.getItem(id).asLiveData()
+    }
+
+    private fun updateSubsidio(subsidio: EntidadSubsidio) {
+        viewModelScope.launch {
+            subsidioDao.update(subsidio)
+        }
+    }
+    private fun getNewSubsidioEntry(subsidioNombre: String, subsidioValor: String,subsidioNumeroPersonas: String, subsidioNumeroHijos: String): EntidadSubsidio {
         return EntidadSubsidio(
             subsidioNombre = subsidioNombre,
             subsidioValor=subsidioValor.toDouble(),
             subsidioNumeroPersonas = subsidioNumeroPersonas.toInt(),
             subsidioNumeroHijos = subsidioNumeroHijos.toInt(),
-            subsidioTotal = subsidioTotal.toDouble()
+
+
+            )
+    }
+
+    fun total (subsidioNombre: String,subsidioValor: Double,subsidioNumeroPersonas: Int, subsidioNumeroHijos: Int):EntidadSubsidio{
+
+
+        return EntidadSubsidio(
+            subsidioNombre = subsidioNombre,
+            subsidioValor=subsidioValor,
+            subsidioNumeroPersonas = subsidioNumeroPersonas,
+            subsidioNumeroHijos = subsidioNumeroHijos
+
+
+            )
+        var total = subsidioValor / subsidioNumeroPersonas * subsidioNumeroHijos
+    }
+
+
+
+    fun deleteItem(subsidio: EntidadSubsidio) {
+        viewModelScope.launch {
+            subsidioDao.delete(subsidio)
+        }
+    }
+
+    private fun getUpdatedSubsidioEntry(
+        id: Int,
+        subsidioNombre: String,
+        subsidioValor: String,
+        subsidioNumeroPersonas: String,
+        subsidioNumeroHijos: String,
+
+
+    ): EntidadSubsidio {
+        return EntidadSubsidio(
+            id = id,
+            subsidioNombre = subsidioNombre,
+            subsidioValor = subsidioValor.toDouble(),
+            subsidioNumeroPersonas = subsidioNumeroPersonas.toInt(),
+            subsidioNumeroHijos = subsidioNumeroHijos.toInt()
 
         )
     }
 
-    fun addNewSubsidio(subsidioNombre:String,subsidioValor: Double,subsidioNumeroPersonas: Int,subsidioNumeroHijos: Int,subsidioTotal:Double   ){
+    fun updateSubsidio(
+        id: Int,
+        subsidioNombre: String,
+        subsidioValor: String,
+        subsidioNumeroPersonas: String,
+        subsidioNumeroHijos: String,
+    ) {
 
-        val newSubsidio = getNewSubsidioEntry(subsidioNombre,subsidioValor,subsidioNumeroPersonas,subsidioNumeroHijos,subsidioTotal)
+        val updatedSubsidio= getUpdatedSubsidioEntry(id, subsidioNombre, subsidioValor, subsidioNumeroPersonas,subsidioNumeroHijos)
+        updateSubsidio(updatedSubsidio)
+    }
+
+    fun addNewSubsidio(subsidioNombre:String,subsidioValor: String,subsidioNumeroPersonas: String,subsidioNumeroHijos: String ) {
+
+        val newSubsidio = getNewSubsidioEntry(subsidioNombre,subsidioValor,subsidioNumeroPersonas,subsidioNumeroHijos)
         insertSubsidio(newSubsidio)
 
+    }
+
+    fun isEntryValid(subsidioNombre: String, subsidioValor: String, subsidioNumeroPersonas: String, subsidioNumeroHijos: String): Boolean {
+        if (subsidioNombre.isBlank() || subsidioValor.isBlank() || subsidioNumeroPersonas.isBlank() || subsidioNumeroHijos.isBlank() ) {
+            return false
+        }
+        return true
     }
 
 }

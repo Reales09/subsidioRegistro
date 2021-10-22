@@ -15,5 +15,15 @@
     <string name="lista_numero_hijos">Hijos</string>
     <string name="lista_total">Total</string>
 
+    <string name="eliminar">Eliminar</string>
+    <string name="editar">Editar</string>
+    <string name="add_new_item">Add new item</string>
+    <string name="delete_question">Estás seguro o segura de eliminar?</string>
+    <string name="no">No</string>
+    <string name="yes">Sí</string>
+    <string name="edit_item">Editar subsidio</string>
+    <string name="edit_fragment_title">Edit subsidio</string>
+
+    <string name="add_fragment_title">Agregar Subsidio</string>
 
 </resources>

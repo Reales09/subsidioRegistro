@@ -4,6 +4,7 @@ import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.registrosubsidio.subsidio
 import java.sql.Timestamp
 import java.text.NumberFormat
 
@@ -21,13 +22,13 @@ data class EntidadSubsidio (
     val subsidioNumeroPersonas: Int,
     @ColumnInfo(name = "numero_hijos")
     val subsidioNumeroHijos: Int,
-    @ColumnInfo(name = "total")
-    val subsidioTotal: Double,
-
 
         )
 
 fun EntidadSubsidio.getFormattedPriceValor(): String = java.text.NumberFormat.getCurrencyInstance().format(subsidioValor)
+fun EntidadSubsidio.getTotal(): Double =  subsidioValor / subsidioNumeroPersonas * subsidioNumeroHijos
+fun EntidadSubsidio.getFormattedPriceValorTotal(): String = java.text.NumberFormat.getCurrencyInstance().format(getTotal())
 
-fun EntidadSubsidio.getFormattedPriceTotal(): String = java.text.NumberFormat.getCurrencyInstance().format(subsidioTotal)
+
+
 

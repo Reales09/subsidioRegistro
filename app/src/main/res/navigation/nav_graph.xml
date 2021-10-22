@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/subsidioListFragment">
+
+    <fragment
+        android:id="@+id/subsidioListFragment"
+        android:name="com.example.registrosubsidio.SubsidioListFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_subsidio_list">
+        <action
+            android:id="@+id/action_subsidioListFragment_to_agregarSubsidioFragment"
+            app:destination="@id/agregarSubsidioFragment" />
+        <action
+            android:id="@+id/action_subsidioListFragment_to_subsidioDetailFragment"
+            app:destination="@id/subsidioDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/subsidioDetailFragment"
+        android:name="com.example.registrosubsidio.SubsidioDetailFragment"
+        android:label="fragment_subsidio_detail"
+        tools:layout="@layout/fragment_subsidio_detail" >
+        <action
+            android:id="@+id/action_subsidioDetailFragment_to_agregarSubsidioFragment"
+            app:destination="@id/agregarSubsidioFragment" />
+        <argument
+            android:name="subsidio_id"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/agregarSubsidioFragment"
+        android:name="com.example.registrosubsidio.AgregarSubsidioFragment"
+        android:label="{title}"
+        tools:layout="@layout/fragment_agregar_subsidio">
+        <action
+            android:id="@+id/action_agregarSubsidioFragment_to_subsidioListFragment"
+            app:destination="@id/subsidioListFragment" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="subsidio_id"
+            android:defaultValue="-1"
+            app:argType="integer" />
+    </fragment>
+</navigation>

@@ -12,8 +12,8 @@
     <TextView
         android:id="@+id/subsidio_nombre"
         style="@style/Widget.Subsidio.ListItemTextView"
-        android:layout_width="75dp"
-        android:layout_height="37dp"
+        android:layout_width="64dp"
+        android:layout_height="33dp"
         android:layout_marginStart="@dimen/margin_between_elements"
         android:fontFamily="sans-serif"
         app:layout_constraintEnd_toStartOf="@+id/subsidio_valor"
@@ -24,8 +24,8 @@
     <TextView
         android:id="@+id/subsidio_valor"
         style="@style/Widget.Subsidio.ListItemTextView"
-        android:layout_width="77dp"
-        android:layout_height="36dp"
+        android:layout_width="86dp"
+        android:layout_height="33dp"
         android:layout_below="@+id/subsidio_nombre"
         android:layout_marginStart="@dimen/margin_between_elements"
         android:fontFamily="sans-serif-medium"
@@ -38,10 +38,10 @@
     <TextView
         android:id="@+id/subsidio_numero_personas"
         style="@style/Widget.Subsidio.ListItemTextView"
-        android:layout_width="66dp"
-        android:layout_height="37dp"
+        android:layout_width="42dp"
+        android:layout_height="31dp"
         android:layout_below="@+id/subsidio_valor"
-        android:layout_marginStart="@dimen/margin_between_elements"
+        android:layout_marginStart="8dp"
         android:fontFamily="sans-serif-medium"
         android:textAlignment="center"
         app:layout_constraintHorizontal_weight="1"
@@ -52,13 +52,14 @@
     <TextView
         android:id="@+id/subsidio_numero_hijos"
         style="@style/Widget.Subsidio.ListItemTextView"
-        android:layout_width="70dp"
-        android:layout_height="38dp"
+        android:layout_width="43dp"
+        android:layout_height="30dp"
         android:layout_below="@+id/subsidio_numero_personas"
         android:layout_marginStart="@dimen/margin_between_elements"
         android:fontFamily="sans-serif-medium"
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/subsidio_total"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@+id/subsidio_numero_personas"
         app:layout_constraintTop_toTopOf="parent"
@@ -67,18 +68,16 @@
     <TextView
         android:id="@+id/subsidio_total"
         style="@style/Widget.Subsidio.ListItemTextView"
-        android:layout_width="64dp"
-        android:layout_height="38dp"
+        android:layout_width="89dp"
+        android:layout_height="34dp"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="@dimen/margin_between_elements"
+        android:layout_marginEnd="16dp"
         android:fontFamily="sans-serif-medium"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="$55.000" />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
